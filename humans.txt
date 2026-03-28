@@ -1,0 +1,13 @@
+/* TEAM */
+
+Company: MASS Growth Partners
+Contact: work.ratananmol@gmail.com
+Location: Patna, Bihar, India
+
+/* SITE */
+
+Last update: 2026-03-24
+Language: English
+Standards: HTML5, CSS3, JavaScript ES6+
+Components: GSAP, Lenis, Spline, Three.js, TailwindCSS
+Fonts: Space Grotesk, Inter (Google Fonts)

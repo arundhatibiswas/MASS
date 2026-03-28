@@ -1,0 +1,7 @@
+# MASS Growth Partners — Security Contact
+# https://securitytxt.org/
+
+Contact: mailto:work.ratananmol@gmail.com
+Preferred-Languages: en
+Canonical: https://mass.llc/.well-known/security.txt
+Expires: 2027-03-24T00:00:00.000Z

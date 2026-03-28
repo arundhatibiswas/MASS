@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found | MASS Growth Partners</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Return to MASS Growth Partners.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2E003E;
+            --secondary: #7B2D8E;
+            --tertiary: #E91E8C;
+            --accent: #00DDEB;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #050507;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Ambient glow */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(233, 30, 140, 0.15) 0%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .error-container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 600px;
+        }
+
+        .error-code {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(6rem, 20vw, 12rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            background: linear-gradient(135deg, rgba(123, 45, 142, 0.4), rgba(233, 30, 140, 0.15));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .error-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .error-desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.7;
+            max-width: 420px;
+            margin: 0 auto 2rem;
+        }
+
+        .error-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 14px 32px;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: linear-gradient(135deg, rgba(123, 45, 142, 0.4), rgba(233, 30, 140, 0.25));
+            backdrop-filter: blur(16px);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 8px 32px rgba(123, 45, 142, 0.25);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .error-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(233, 30, 140, 0.3);
+            border-color: rgba(233, 30, 140, 0.35);
+        }
+
+        .error-links {
+            margin-top: 2rem;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .error-links a {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .error-links a:hover {
+            color: var(--tertiary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-desc">The page you're looking for has been moved, deleted, or never existed. Let's get you back
+            on track.</p>
+        <a href="/" class="error-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 19-7-7 7-7" />
+                <path d="M19 12H5" />
+            </svg>
+            Back to Home
+        </a>
+        <div class="error-links">
+            <a href="/services">Services</a>
+            <a href="/about">About</a>
+            <a href="/clients">Clients</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </div>
+</body>
+
+</html>
