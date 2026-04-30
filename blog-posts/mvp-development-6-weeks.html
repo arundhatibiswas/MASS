@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <title>MVP Development: Build Your First Product in 6 Weeks | MASS</title>
+    <meta name="description"
+        content="A step-by-step guide to building your MVP in 6 weeks. Learn the process, tech stack choices, and prioritization strategies that work.">
+    <link rel="canonical" href="https://mass.llc/blog-posts/mvp-development-6-weeks" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "MVP Development: Build Your First Product in 6 Weeks",
+      "url": "https://mass.llc/blog-posts/mvp-development-6-weeks",
+      "datePublished": "2026-03-22",
+      "author": {
+        "@type": "Organization",
+        "name": "MASS Growth Partners",
+        "url": "https://mass.llc"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "MASS Growth Partners",
+        "url": "https://mass.llc"
+      },
+      "description": "A step-by-step guide to building your MVP in 6 weeks. Learn the process, tech stack choices, and prioritization strategies that work."
+    }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" defer></script>
+</head>
+
+<body>
+    <!-- Custom Styled Floating Navbar -->
+    <div class="fixed top-0 left-0 w-full z-[1000] sm:px-6 md:px-10">
+        <header id="main-navbar"
+            class="animate-slideDown bg-gray-500/20 backdrop-blur-lg w-[calc(100%-2rem)] max-w-5xl border-zinc-50/10 border rounded-full mt-6 mx-auto py-2 px-6">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <a href="../index.html" class="brand">
+                        <span class="mass-logo">MASS</span>
+                        <span class="tag">Growth Partners</span>
+                    </a>
+                </div>
+
+                <nav class="hidden md:flex items-center gap-8 text-sm text-neutral-300">
+                    <a href="../index.html"
+                        class="hover:text-white transition-all hover:scale-105 duration-200 font-medium tracking-wide">Work</a>
+                    <a href="../about.html"
+                        class="hover:text-white transition-all hover:scale-105 duration-200 font-medium tracking-wide">About</a>
+                    <a href="../services.html"
+                        class="hover:text-white transition-all hover:scale-105 duration-200 font-medium tracking-wide">Services</a>
+                    <a href="../clients.html"
+                        class="hover:text-white transition-all hover:scale-105 duration-200 font-medium tracking-wide">Clients</a>
+                    <a href="../blogs.html"
+                        class="hover:text-white transition-all hover:scale-105 duration-200 font-medium tracking-wide">Blog</a>
+                    <a href="../contact.html"
+                        class="hover:text-white transition-all hover:scale-105 duration-200 font-medium tracking-wide">Contact</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <a href="../contact.html" class="navbar-cta-btn"
+                        style="align-items: center; background-image: linear-gradient(144deg, rgb(175, 64, 255), rgb(91, 66, 243) 50%, rgb(0, 221, 235)); border: 0px; border-radius: 9999px; box-shadow: rgba(151, 65, 252, 0.2) 0px 15px 30px -5px; box-sizing: border-box; color: rgb(255, 255, 255); display: inline-flex; font-size: 14px; justify-content: center; line-height: 1em; max-width: 100%; min-width: auto; padding: 3px; text-decoration: none; user-select: none; touch-action: manipulation; white-space: nowrap; cursor: pointer; height: 44px; transform: scale(1); width: auto;"
+                        onmouseover="this.querySelector('span').style.background='none'"
+                        onmouseout="this.querySelector('span').style.backgroundColor='rgb(5, 6, 45)'"
+                        onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'">
+                        <span
+                            style="background: rgb(5, 6, 45); padding: 10px 24px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: background 0.3s ease; height: 100%;">
+                            Become MASS
+                        </span>
+                    </a>
+
+                    <!-- Mobile Hamburger -->
+                    <button class="mob-menu-btn md:hidden" id="mob-menu-btn" onclick="toggleMobileMenu()"
+                        aria-label="Menu">
+                        <span class="mob-menu-bar"></span>
+                        <span class="mob-menu-bar"></span>
+                        <span class="mob-menu-bar"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Full-Screen Mobile Menu Overlay -->
+    <div class="mob-menu-overlay" id="mob-menu-overlay">
+        <!-- Curved sweep shape -->
+        <svg class="mob-menu-curve" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M100,0 L100,100 L0,100 L0,0 C30,15 30,85 0,100" fill="#050507" />
+        </svg>
+        <div class="mob-menu-content">
+            <button class="mob-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+            <div class="mob-menu-label">Menu</div>
+            <nav class="mob-menu-nav">
+                <a href="../index.html" class="mob-menu-link">Work</a>
+                <a href="../services.html" class="mob-menu-link">Services</a>
+                <a href="../about.html" class="mob-menu-link">About</a>
+                <a href="../clients.html" class="mob-menu-link">Clients</a>
+                <a href="../blogs.html" class="mob-menu-link">Blog</a>
+                <a href="../contact.html" class="mob-menu-link">Contact</a>
+            </nav>
+            <a href="../contact.html" class="mob-menu-cta"><span>Become MASS</span></a>
+            <div class="mob-menu-footer">
+                <div class="mob-menu-social">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                </div>
+                <div class="mob-menu-legal">
+                    <a href="../terms.html">Terms &amp; Conditions</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <article style="max-width:800px;margin:0 auto;padding:8rem 1.5rem 4rem;">
+            <div style="margin-bottom:2rem;"><a href="../blogs.html"
+                    style="color:var(--tertiary);font-size:0.85rem;text-decoration:none;">&larr; Back to Blog</a></div>
+            <span class="blog-card-tag" style="margin-bottom:1rem;display:inline-block;">Web</span>
+            <h1 class="brand-font"
+                style="font-size:clamp(1.75rem,4vw,2.5rem);color:var(--primary);line-height:1.2;margin-bottom:1rem;font-weight:bold;">
+                MVP
+                Development: Build Your First Product in 6 Weeks</h1>
+            <div class="blog-card-meta" style="margin-bottom:2rem;"><span>Mar 22, 2026</span><span>10 min read</span>
+            </div>
+
+            <div style="color:rgba(46,0,62,0.7);line-height:1.9;font-size:1.05rem;">
+                <p style="margin-bottom:1.5rem;">Six weeks sounds aggressive. It is. But after shipping dozens of MVPs
+                    for startups and enterprise innovation teams, we've found that six weeks is the sweet spot — long
+                    enough to build something real, short enough to force ruthless prioritization.</p>
+                <p style="margin-bottom:1.5rem;">Here's the exact playbook we use at MASS to take a product from idea to
+                    live users in 42 days.</p>
+
+                <h2 class="brand-font"
+                    style="font-size:1.5rem;color:var(--primary);margin:2.5rem 0 1rem;font-weight:bold;">Week 1:
+                    Discovery & Scoping</h2>
+                <p style="margin-bottom:1rem;">The first week is entirely about asking the right questions and making
+                    hard cuts:</p>
+                <ul style="list-style:disc;padding-left:1.5rem;margin-bottom:1.5rem;">
+                    <li style="margin-bottom:0.5rem;"><strong>Define the core hypothesis.</strong> What is the one thing
+                        your product must prove? Not three things. One.</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Map user flows.</strong> Identify the 2-3 critical user
+                        journeys. Everything else is post-MVP.</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Choose your stack.</strong> For most MVPs, we recommend
+                        Next.js + Supabase (or PostgreSQL) + Vercel. Fast to build, easy to scale later, excellent DX.
+                    </li>
+                    <li style="margin-bottom:0.5rem;"><strong>Set up infrastructure.</strong> CI/CD pipeline, staging
+                        environment, error monitoring (Sentry), and analytics (PostHog or Mixpanel) from day one. You'll
+                        thank yourself later.</li>
+                </ul>
+                <p style="margin-bottom:1.5rem;"><strong>Deliverable:</strong> A scoped feature list with "must have,"
+                    "should have," and "cut" columns. The "cut" column should be the longest.</p>
+
+                <h2 class="brand-font"
+                    style="font-size:1.5rem;color:var(--primary);margin:2.5rem 0 1rem;font-weight:bold;">Weeks 2-3:
+                    Core Feature Build</h2>
+                <p style="margin-bottom:1.5rem;">This is where the real work happens. Two full weeks of focused
+                    development on the features that make your product a product, not a prototype.</p>
+                <ul style="list-style:disc;padding-left:1.5rem;margin-bottom:1.5rem;">
+                    <li style="margin-bottom:0.5rem;"><strong>Authentication and user management.</strong> Use a managed
+                        auth provider (Clerk, Auth0, or Supabase Auth). Don't roll your own.</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Core data model.</strong> Design your database schema for
+                        what you need now, with clear extension points for later.</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Primary user flows.</strong> Build the screens and logic
+                        for your 2-3 critical journeys. Ship ugly if you must — functionality over aesthetics at this
+                        stage.</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Daily standups.</strong> 15 minutes, every day. What did
+                        you ship? What's blocking you? What's next?</li>
+                </ul>
+
+                <h2 class="brand-font"
+                    style="font-size:1.5rem;color:var(--primary);margin:2.5rem 0 1rem;font-weight:bold;">Weeks 4-5:
+                    Polish, Payments & Testing</h2>
+                <p style="margin-bottom:1.5rem;">The product works. Now make it usable and monetizable:</p>
+                <ul style="list-style:disc;padding-left:1.5rem;margin-bottom:1.5rem;">
+                    <li style="margin-bottom:0.5rem;"><strong>UI polish.</strong> Consistent spacing, loading states,
+                        error messages, empty states. These details are the difference between "prototype" and
+                        "product."</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Payment integration.</strong> Stripe takes 2-3 days to
+                        integrate properly. Do it now, not after launch.</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Manual QA.</strong> Test every flow on desktop, tablet,
+                        and mobile. Test with slow internet. Test with real data, not placeholder content.</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Invite 5-10 beta users.</strong> Watch them use your
+                        product. The things they struggle with are the things you need to fix before launch.</li>
+                </ul>
+
+                <h2 class="brand-font"
+                    style="font-size:1.5rem;color:var(--primary);margin:2.5rem 0 1rem;font-weight:bold;">Week 6:
+                    Launch</h2>
+                <p style="margin-bottom:1.5rem;">Launch week is not about building new features. It's about preparing
+                    for real users:</p>
+                <ul style="list-style:disc;padding-left:1.5rem;margin-bottom:1.5rem;">
+                    <li style="margin-bottom:0.5rem;"><strong>Landing page.</strong> Clear value proposition, pricing,
+                        and a signup button. That's it.</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Monitoring.</strong> Set up alerts for errors, slow
+                        queries, and unusual traffic patterns.</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Support channel.</strong> Even a shared Slack channel or
+                        email alias. Users need somewhere to reach you.</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Launch.</strong> Post on Product Hunt, share with your
+                        network, email your waitlist. The goal isn't viral growth — it's getting 50-100 real users
+                        interacting with your product.</li>
+                </ul>
+
+                <h2 class="brand-font"
+                    style="font-size:1.5rem;color:var(--primary);margin:2.5rem 0 1rem;font-weight:bold;">Tech Stack
+                    Recommendations</h2>
+                <p style="margin-bottom:1rem;">Based on what we've seen work best for speed without sacrificing quality:
+                </p>
+                <ul style="list-style:disc;padding-left:1.5rem;margin-bottom:1.5rem;">
+                    <li style="margin-bottom:0.5rem;"><strong>Frontend:</strong> Next.js 14+ with App Router, Tailwind
+                        CSS, shadcn/ui components</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Backend:</strong> Next.js API routes or separate
+                        Express/Fastify service if complexity demands it</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Database:</strong> PostgreSQL via Supabase or Neon
+                        (serverless)</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Auth:</strong> Clerk or Supabase Auth</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Payments:</strong> Stripe</li>
+                    <li style="margin-bottom:0.5rem;"><strong>Hosting:</strong> Vercel (frontend) + Railway or Render
+                        (backend services)</li>
+                </ul>
+
+                <h2 class="brand-font"
+                    style="font-size:1.5rem;color:var(--primary);margin:2.5rem 0 1rem;font-weight:bold;">The Biggest
+                    Mistake: Building Too Much</h2>
+                <p style="margin-bottom:1.5rem;">The number one reason MVPs fail isn't bad engineering — it's scope
+                    creep. Every feature you add extends your timeline and delays the moment you get real user feedback.
+                    The purpose of an MVP is to learn, not to impress. Ship the smallest thing that tests your core
+                    hypothesis, then iterate based on data.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Premium Footer -->
+    <footer class="footer">
+        <!-- CTA Banner -->
+        <div class="footer-cta-banner">
+            <div class="footer-cta-inner">
+                <div class="footer-cta-content">
+                    <h3 class="brand-font"
+                        style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:600;color:white;line-height:1.2;">
+                        READY TO BUILD SOMETHING GREAT?
+                    </h3>
+                    <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;margin-top:0.75rem;max-width:380px;">
+                        Join the businesses transforming their market presence with strategic precision.</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center; padding-top: 1rem;">
+                        <a href="../contact.html" class="btn-glass btn-glass-solid">Become MASS</a>
+                        <a href="../clients.html" class="btn-glass btn-glass-outline">View Case Studies</a>
+                    </div>
+                </div>
+                <div class="footer-cta-visual">
+                    <div class="footer-cta-card">
+                        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
+                            <div style="width:8px;height:8px;border-radius:50%;background:var(--tertiary);"></div>
+                            <div style="width:8px;height:8px;border-radius:50%;background:var(--secondary);"></div>
+                            <div style="width:8px;height:8px;border-radius:50%;background:var(--accent);"></div>
+                        </div>
+                        <div
+                            style="height:8px;width:70%;background:rgba(255,255,255,0.08);border-radius:4px;margin-bottom:0.5rem;">
+                        </div>
+                        <div
+                            style="height:8px;width:50%;background:rgba(255,255,255,0.05);border-radius:4px;margin-bottom:1rem;">
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+                            <div
+                                style="height:40px;border-radius:8px;background:linear-gradient(135deg,rgba(123,45,142,0.3),rgba(233,30,140,0.15));border:1px solid rgba(255,255,255,0.06);">
+                            </div>
+                            <div
+                                style="height:40px;border-radius:8px;background:linear-gradient(135deg,rgba(233,30,140,0.15),rgba(244,194,194,0.1));border:1px solid rgba(255,255,255,0.06);">
+                            </div>
+                        </div>
+                        <div
+                            style="height:60px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);margin-top:0.5rem;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+            <!-- Top Row: Brand + Social -->
+            <div class="footer-top-row">
+                <div class="footer-brand-inline">
+                    <span class="brand-font"
+                        style="font-size:1.5rem;font-weight:700;color:white;letter-spacing:-0.03em;"
+                        onclick="window.location.href='../index.html'">MASS</span>
+                </div>
+                <div class="footer-social-links">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+
+            <!-- Nav Links Row -->
+            <div class="footer-nav-row">
+                <div class="footer-nav-group">
+                    <a href="../about.html">About Us</a>
+                    <a href="../services.html">Services</a>
+                    <a href="../clients.html">Clients</a>
+                    <a href="../blogs.html">Blog</a>
+                    <a href="../contact.html">Contact</a>
+                </div>
+            </div>
+
+            <!-- Copyright Row -->
+            <div class="footer-bottom">
+                <div>&copy; 2026 MASS Growth Partners. All rights reserved.</div>
+                <div style="display:flex;gap:2rem;">
+                    <a href="../terms.html">Terms</a>
+                    <a href="../privacy.html">Privacy</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Giant MASS Watermark (NOVUS style) -->
+        <div class="footer-giant-name">
+            <p class="brand-font" data-text="MASS">MASS</p>
+        </div>
+    </footer>
+    <script src="../js/script.js" defer></script>
+</body>
+
+</html>
