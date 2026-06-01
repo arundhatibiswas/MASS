@@ -1,0 +1,16 @@
+<svg width="168" height="40" viewBox="0 0 168 40" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MASS">
+  <title>MASS</title>
+  <!-- Double chevron mark -->
+  <path d="M 3 24 L 20 9 L 37 24" stroke="#3B82F6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 3 35 L 20 20 L 37 35" stroke="#3B82F6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- MASS wordmark — near-white for dark backgrounds -->
+  <text
+    x="50"
+    y="31"
+    font-family="'Space Grotesk', 'Inter', Arial, sans-serif"
+    font-weight="700"
+    font-size="28"
+    letter-spacing="-1.2"
+    fill="#F1F5F9"
+  >MASS</text>
+</svg>

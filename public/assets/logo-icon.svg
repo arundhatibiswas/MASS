@@ -1,0 +1,6 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MASS logo mark">
+  <!-- Upper chevron -->
+  <path d="M 3 24 L 20 9 L 37 24" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Lower chevron -->
+  <path d="M 3 35 L 20 20 L 37 35" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
