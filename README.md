@@ -19,7 +19,7 @@ A modern, responsive website built to present MASS's services and convert visito
 - **CSS**
 - Modern component-based front-end architecture
 
-## 🚀 Getting Started
+<!--- ## 🚀 Getting Started
 
 ```bash
 # Clone the repository
@@ -33,7 +33,7 @@ npm install
 npm run dev
 ```
 
-> Adjust the commands above to match the project's actual package scripts.
+> Adjust the commands above to match the project's actual package scripts.--->
 
 ## 🔗 Live Demo
 
